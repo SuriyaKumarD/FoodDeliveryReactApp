@@ -1,0 +1,30 @@
+.logo {
+  width: 100px;
+  height: 70px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(29, 31, 29);
+}
+.navitems > ul {
+  display: flex;
+}
+.navitems > ul > li {
+  margin: 10px;
+  padding: 10px;
+  list-style-type: none;
+  font-size: 20px;
+}
+.RestroCards {
+  background-color: aquamarine;
+  height: 400px;
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+}
+.foodLogo {
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+}
