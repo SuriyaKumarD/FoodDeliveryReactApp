@@ -17,14 +17,24 @@
   font-size: 20px;
 }
 .RestroCards {
-  background-color: aquamarine;
-  height: 400px;
+  background-color: antiquewhite;
+  height: 350px;
   width: 200px;
   margin: 10px;
   padding: 10px;
+  border-radius: 3px;
 }
 .foodLogo {
-  width: 150px;
-  height: 150px;
-  padding: 10px;
+  width: 198px;
+  height: 130px;
+}
+.RestroCards:hover {
+  cursor: pointer;
+  border: 1px solid black;
+  z-index: 9999;
+}
+.restro-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
 }
