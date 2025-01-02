@@ -1,4 +1,4 @@
-import { CLOUD_IMG_URL } from "../Utilis/constants";
+import CLOUD_IMG_URL from "../Utilis/constants";
 
 const RestroCards = (props) => {
   console.log("props", props);
