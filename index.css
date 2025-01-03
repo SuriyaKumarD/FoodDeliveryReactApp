@@ -41,3 +41,22 @@
 .topRatedRes {
   margin: 10px auto;
 }
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+.shimmerCards {
+  margin: 10px;
+  height: 350px;
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: rgb(212, 204, 202);
+}
+.shimmerImg {
+  width: 198px;
+  height: 130px;
+  background-color: rgb(231, 224, 222);
+}
