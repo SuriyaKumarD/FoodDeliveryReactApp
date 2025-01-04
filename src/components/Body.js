@@ -21,11 +21,15 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-  if (listOfRestraunts == 0) {
-    return <Shimmer />;
-  }
 
-  return (
+  //conditional Rendering
+  //   if (listOfRestraunts == 0) {
+  //     return <Shimmer />;
+  //   }
+
+  return listOfRestraunts == 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       {/* <div className="Search">
       <h2>Search</h2>

@@ -60,3 +60,8 @@
   height: 130px;
   background-color: rgb(231, 224, 222);
 }
+.loginbtn {
+  padding: 0 10px;
+  margin: 0 10px;
+  cursor: pointer;
+}
