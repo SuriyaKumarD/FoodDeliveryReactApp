@@ -39,7 +39,7 @@
   margin: 50px;
 }
 .topRatedRes {
-  margin: 10px auto;
+  margin: 10px;
 }
 .shimmer-container {
   display: flex;
@@ -64,4 +64,12 @@
   padding: 0 10px;
   margin: 0 10px;
   cursor: pointer;
+}
+.Search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Search {
+  margin: 20px;
 }

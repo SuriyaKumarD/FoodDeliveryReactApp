@@ -5,7 +5,8 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestraunts, setlistOfRestraunts] = useState([]);
-
+  const [filterListOfRestraunts, setfilterListOfRestraunts] = useState([]);
+  const [searchedTxt, setsearchedTxt] = useState("");
   useEffect(() => {
     GetData();
   }, []);
@@ -20,6 +21,9 @@ const Body = () => {
     setlistOfRestraunts(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setfilterListOfRestraunts(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   //conditional Rendering
@@ -31,22 +35,45 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      {/* <div className="Search">
-      <h2>Search</h2>
-      </div> */}
-      <button
-        className="topRatedRes"
-        onClick={() => {
-          const filteredList = listOfRestraunts.filter(
-            (res) => res.info.avgRating > 4
-          );
-          setlistOfRestraunts(filteredList);
-        }}
-      >
-        Top Rated Restraunts
-      </button>
+      <div className="Search-container">
+        <div className="Search">
+          <input
+            type="text"
+            placeholder="Search by Name"
+            value={searchedTxt}
+            onChange={(e) => {
+              const userSearchedTxt = e.target.value;
+              setsearchedTxt(userSearchedTxt);
+            }}
+          />
+          <button
+            onClick={() => {
+              //Filter
+
+              const filteredList = listOfRestraunts.filter((x) =>
+                x.info.name.toLowerCase().includes(searchedTxt.toLowerCase())
+              );
+              setfilterListOfRestraunts(filteredList);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <button
+          className="topRatedRes"
+          onClick={() => {
+            const filteredList = listOfRestraunts.filter(
+              (res) => res.info.avgRating > 4
+            );
+            setfilterListOfRestraunts(filteredList);
+          }}
+        >
+          Top Rated Restraunts
+        </button>
+      </div>
+
       <div className="restro-container">
-        {listOfRestraunts.map((restaurent) => (
+        {filterListOfRestraunts.map((restaurent) => (
           <RestroCards key={restaurent.info.id} resData={restaurent.info} />
         ))}
       </div>
