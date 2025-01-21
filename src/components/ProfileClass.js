@@ -12,6 +12,13 @@ class Profile extends React.Component {
     console.log("API calls happens here in Class component!!!");
   }
 
+  componentDidUpdate() {
+    console.log("componentDidUpdate is called");
+  }
+
+  componentWillUnmount() {
+    console.log("componentWillUnmount!!!");
+  }
   render() {
     console.log("rendered component!!!");
     return (
