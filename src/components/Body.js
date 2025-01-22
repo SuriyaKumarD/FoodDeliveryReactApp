@@ -3,6 +3,7 @@ import resList from "../Utilis/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useIsOnline from "../Utilis/useIsOnline";
 
 const Body = () => {
   const [listOfRestraunts, setlistOfRestraunts] = useState([]);
@@ -32,6 +33,11 @@ const Body = () => {
   //   if (listOfRestraunts == 0) {
   //     return <Shimmer />;
   //   }
+  const isOnline = useIsOnline();
+
+  if (!isOnline) {
+    return <h1> Kindly Check your Internet Connection@!!!🥱</h1>;
+  }
 
   return listOfRestraunts == 0 ? (
     <Shimmer />
