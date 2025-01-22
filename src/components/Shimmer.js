@@ -4,7 +4,7 @@ const Shimmer = () => {
       {Array(10)
         .fill("")
         .map((e) => (
-          <div className="shimmerCards">
+          <div className="shimmerCards" key={indexedDB}>
             <div className="shimmerImg"></div>
           </div>
         ))}

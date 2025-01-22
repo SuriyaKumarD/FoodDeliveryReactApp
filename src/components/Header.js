@@ -1,6 +1,7 @@
 import sonucompanylogo from "../../assets/sonucompanylogo.jpg";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useIsOnline from "../Utilis/useIsOnline";
 const Header = () => {
   console.log("Header Render");
   let btnName = "Login";
@@ -10,6 +11,7 @@ const Header = () => {
     console.log("UseEffect is Called!!!");
   }, []);
 
+  const isOnline = useIsOnline();
   return (
     <div className="header">
       <div className="logodiv">
@@ -29,6 +31,9 @@ const Header = () => {
           <li>
             <Link>Cart</Link>
           </li>
+          <li>
+            <Link to="/instamart">Instamart</Link>
+          </li>
           <button
             className="loginbtn"
             onClick={() => {
@@ -39,6 +44,7 @@ const Header = () => {
           >
             {reactLoginBtn}
           </button>
+          <h1>{isOnline ? "✅" : "🥱"}</h1>
         </ul>
       </div>
     </div>

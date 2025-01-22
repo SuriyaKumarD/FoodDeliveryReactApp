@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -8,6 +8,10 @@ import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Profile from "./components/Profile";
+import Shimmer from "./components/Shimmer";
+
+//chunking/Lazy loading Instamart below
+const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
   return (
@@ -44,6 +48,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/resDetails/:id",
         element: <RestrauntMenu />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,
