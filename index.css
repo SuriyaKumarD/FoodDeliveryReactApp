@@ -1,4 +1,6 @@
-.logo {
+@import "tailwindcss";
+
+/* .logo {
   width: 100px;
   height: 70px;
 }
@@ -80,4 +82,4 @@
   width: 200px !important ;
   border: 1px solid grey !important;
   border-radius: 20% !important;
-}
+} */

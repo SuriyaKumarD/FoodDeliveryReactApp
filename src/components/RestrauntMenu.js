@@ -2,23 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CLOUD_IMG_URL from "../Utilis/constants";
 import Shimmer from "./Shimmer";
+import useRestaurants from "../Utilis/useRestaurants";
 
 const RestrauntMenu = () => {
   const { id } = useParams();
-  useEffect(() => {
-    getRestaurantsDetails();
-  }, []);
-  const [restValues, setrestValues] = useState(null);
-
-  const getRestaurantsDetails = async () => {
-    const DetailsData = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=" +
-        id
-    );
-    const json = await DetailsData.json();
-    console.log("ResVa", json?.data);
-    setrestValues(json?.data?.cards[2]?.card?.card?.info);
-  };
+  
+  const restValues= useRestaurants(id)
 
   return !restValues ? (
     <Shimmer />
