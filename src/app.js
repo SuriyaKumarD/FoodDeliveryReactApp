@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -9,15 +9,27 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
+import { UserContext } from "./Utilis/UserContext";
+import Footer from "./components/Footer";
+import Login from "./components/Login";
 
 //chunking/Lazy loading Instamart below
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
+  const [currentUser, setCurrentUser] = useState({
+    name: "Suriya",
+    email: "suriya.d@gmail.com",
+  });
   return (
     <div id="appLayout">
-      <Header />
-      <Outlet />
+      <UserContext.Provider
+        value={{ user: currentUser, setCurrentUser: setCurrentUser }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </div>
   );
 };
@@ -56,6 +68,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
     errorElement: <Error />,

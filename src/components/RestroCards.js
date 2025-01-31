@@ -7,10 +7,10 @@ const RestroCards = (props) => {
   const { name, cuisines, avgRating, locality, cloudinaryImageId } = resData;
 
   return (
-    <div className="RestroCards w-53 h-[420px] p-4 m-2 bg-fuchsia-100 rounded-2xl hover:bg-amber-50 cursor-pointer hover:border drop-shadow-2xl">
+    <div className="RestroCards w-53 h-[420px] p-4 m-2 bg-fuchsia-100 rounded-2xl hover:bg-amber-50 cursor-pointer hover:border drop-shadow-2xl shadow-2xl">
       <div>
         <img
-          className="foodLogo rounded-2xl my-1 p-1 h-50 w-53 drop-shadow-2xl"
+          className="foodLogo rounded-2xl my-1 p-1 h-50 w-53 drop-shadow-2xl "
           src={CLOUD_IMG_URL + cloudinaryImageId}
           alt="foodimg"
         ></img>

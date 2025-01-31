@@ -1,14 +1,16 @@
 import RestroCards from "./RestroCards";
 import resList from "../Utilis/mockData";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useIsOnline from "../Utilis/useIsOnline";
+import { UserContext } from "../Utilis/UserContext";
 
 const Body = () => {
   const [listOfRestraunts, setlistOfRestraunts] = useState([]);
   const [filterListOfRestraunts, setfilterListOfRestraunts] = useState([]);
   const [searchedTxt, setsearchedTxt] = useState("");
+  const { user, setCurrentUser } = useContext(UserContext);
   useEffect(() => {
     GetData();
   }, []);

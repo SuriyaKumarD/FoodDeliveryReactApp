@@ -6,16 +6,16 @@ import useRestaurants from "../Utilis/useRestaurants";
 
 const RestrauntMenu = () => {
   const { id } = useParams();
-  
-  const restValues= useRestaurants(id)
+
+  const restValues = useRestaurants(id);
 
   return !restValues ? (
     <Shimmer />
   ) : (
     <div>
-      <h1>RestrauntMenu in ID: {id}!!!</h1>
+      <h1 className="text-2xl">RestrauntMenu in ID: {id}!!!</h1>
       <img
-        className="resValueImg"
+        className="resValueImg size-80 border-2 drop-shadow-lg caret-indigo-300 justify-center items-center align self-center"
         src={CLOUD_IMG_URL + restValues?.cloudinaryImageId}
       ></img>
       <h1>Name: {restValues?.name}!!!</h1>
