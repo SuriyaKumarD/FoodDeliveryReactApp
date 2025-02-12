@@ -1,6 +1,6 @@
 const Shimmer = () => {
   return (
-    <div className="shimmer-container flex">
+    <div className="shimmer-container flex flex-wrap mx-[100px] drop-shadow-xl  mt-[100px]">
       {Array(10)
         .fill("")
         .map((e) => (
@@ -10,7 +10,7 @@ const Shimmer = () => {
           >
             <div className="shimmerImg"></div>
           </div>
-        ))} 
+        ))}
     </div>
   );
 };
